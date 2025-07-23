@@ -14,11 +14,15 @@ admin.initializeApp({
 const app = express();
 app.use(bodyParser.json());
  
-const PORT = process.env.PORT || 5000;
+const PORT = 1000;
  
 let deviceTokens = [];
  
 // Register device token
+app.get('/', (req, res) => {
+    res.send('Woocom Backend Running!');
+})
+
 app.post('/register-token', (req, res) => {
   const { token } = req.body;
   if (token && !deviceTokens.includes(token)) {
